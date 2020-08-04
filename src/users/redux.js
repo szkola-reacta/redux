@@ -12,21 +12,19 @@ export const fetchRequested = () => ({ type: FETCH_USERS_REQUESTED });
 export const fetchFailed = () => ({ type: FETCH_USERS_FAILED });
 export const fetchSucceded = data => ({ type: FETCH_USERS_SUCCEDED, payload: data });
 
-export const fetchUsers = () => {
-  return function(dispatch) {
-    dispatch(fetchRequested());
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(response => response.json())
-      .then(data => {
-        console.log('data: ', data.slice(0, 5));
-        dispatch(fetchSucceded(data.slice(0, 5)));
-      })
-      .catch(error => {
-        console.log('Mam error: ', error)
-        dispatch(fetchFailed());
-      });
-  };
-};
+// export const fetchUsers = () => {
+//   return function(dispatch) {
+//     dispatch(fetchRequested());
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//       .then(response => response.json())
+//       .then(data => {
+//         dispatch(fetchSucceded(data.slice(0, 5)));
+//       })
+//       .catch(error => {
+//         dispatch(fetchFailed());
+//       });
+//   };
+// };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {

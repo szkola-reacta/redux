@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import UsersList from "../components/UsersList";
-import { fetchUsers } from "../redux";
+import { fetchRequested } from "../redux";
 
 class Users extends Component {
   fetchData = () => {
-    this.props.fetchUsers();
+    this.props.fetchRequested();
   };
   render() {
     const { users, isLoading } = this.props;
@@ -28,7 +28,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUsers: () => dispatch(fetchUsers())
+  fetchRequested: () => dispatch(fetchRequested())
 });
 
 export default connect(
