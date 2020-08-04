@@ -12,7 +12,6 @@ class Appbar extends Component {
         <div>
           Show Appbar: {showAppBar ? 'Yes' : 'No'} <button onClick={toggleTopBar}>Toggle</button>
         </div>
-      
       </div>
     );
   }
