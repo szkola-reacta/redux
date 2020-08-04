@@ -12,6 +12,8 @@ import CounterContainer from "./counter/CounterContainer";
 import Posts from "./posts/containers/Posts";
 import Users from "./users/containers/Users";
 import Appbar from "./ui/containers/Appbar";
+import ContactForm from './users/containers/ContactForm';
+
 import rootReducer from "./rootReducer";
 
 const persistConfig = {
@@ -31,12 +33,18 @@ const store = createStore(persistedReducer, /* preloadedState, */ composeEnhance
 const persistor = persistStore(store);
 
 export default class App extends React.Component {
+
+  handleSubmit = (values) => {
+    console.log('values: ', values);
+  }
+
   render() {
     return (
       <div className="App">
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <Appbar />
+            <ContactForm onSubmit={this.handleSubmit} />
             <CounterContainer />
             <Posts />
             <Users />
