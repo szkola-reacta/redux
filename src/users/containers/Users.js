@@ -1,21 +1,19 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import UsersList from "../components/UsersList";
+import { fetchUsers } from "../redux";
 
 class Users extends Component {
-  state = {
-    users: []
-  };
   fetchData = () => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(response => response.json())
-      .then(data => this.setState({ users: data.slice(0, 3) }));
+    this.props.fetchUsers();
   };
   render() {
-    const { users } = this.state;
+    const { users, isLoading } = this.props;
     return (
       <div className="container">
         <h2>Users</h2>
+        {isLoading && <p>Loading...</p>}
         <button onClick={this.fetchData}>Fetch Users</button>
         <UsersList users={users} />
       </div>
@@ -23,4 +21,18 @@ class Users extends Component {
   }
 }
 
-export default Users;
+const mapStateToProps = state => ({
+  users: state.users.users,
+  isLoading: state.users.isLoading,
+  isError: state.users.isError
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchUsers: () => dispatch(fetchUsers())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Users);
+
