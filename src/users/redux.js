@@ -8,9 +8,9 @@ const INITIAL_STATE = {
   isError: false
 };
 
-const fetchRequested = () => ({ type: FETCH_USERS_REQUESTED });
-const fetchFailed = () => ({ type: FETCH_USERS_FAILED });
-const fetchSucceded = data => ({ type: FETCH_USERS_SUCCEDED, payload: data });
+export const fetchRequested = () => ({ type: FETCH_USERS_REQUESTED });
+export const fetchFailed = () => ({ type: FETCH_USERS_FAILED });
+export const fetchSucceded = data => ({ type: FETCH_USERS_SUCCEDED, payload: data });
 
 export const fetchUsers = () => {
   return function(dispatch) {
