@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest, all } from 'redux-saga/effects';
+import { put, takeLatest, all } from 'redux-saga/effects';
 
 import { fetchSucceded, fetchFailed } from './users/redux';
 import { FETCH_USERS_REQUESTED } from './users/redux';
