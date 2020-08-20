@@ -8,7 +8,7 @@ class CounterContainer extends Component {
     return (
       <div className="container">
         <h2>Counter: {counterValue} </h2>
-        <button onClick={() => addValue()}>Add</button>
+        <button onClick={() => addValue()}>Add value</button>
       </div>
     );
   }
