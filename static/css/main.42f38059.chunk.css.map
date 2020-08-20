@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,KACE,sBACF,CAEA,GACE,eACF,CAEA,WACE,uBAAyB,CACzB,WAAY,CACZ,YACF","file":"main.42f38059.chunk.css","sourcesContent":[".App {\n  font-family: sans-serif;\n}\n\nh3 {\n  font-weight: normal;\n}\n\n.container {\n  border: #c0c0c0 1px solid;\n  margin: 20px;\n  padding: 10px;\n}\n"]}
